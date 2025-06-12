@@ -8,7 +8,9 @@ module mux_4x1_tb;
   initial begin
     $dumpfile("mux_4x1.vcd");
     $dumpvars;
-
+	end
+	
+  initial begin
     i = 4'b1010;
     for (int j = 0; j < 4; j++) begin
       m = j;
