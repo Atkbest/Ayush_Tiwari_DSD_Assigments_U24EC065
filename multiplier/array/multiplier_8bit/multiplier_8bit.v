@@ -7,8 +7,8 @@ module fa(input a,b,cin, output sum,cout);
 endmodule
 
 module multiplier_8bit(input [7:0] a,b, output [15:0] o);
-  wire [47:0] c;
-  wire [48:0] s;
+  wire [55:0] c;
+  wire [41:0] s;
   assign o[0]=a[0]&b[0];
   ha ha1(.a(a[1]&b[0]),.b(a[0]&b[1]),.sum(o[1]),.cout(c[0]));
   ha ha2(.a(a[2]&b[0]),.b(a[1]&b[1]),.sum(s[0]),.cout(c[1]));
@@ -24,7 +24,7 @@ module multiplier_8bit(input [7:0] a,b, output [15:0] o);
   fa fa4(.a(a[3]&b[2]),.b(s[3]),.cin(c[3]),.sum(s[8]),.cout(c[10]));
   fa fa5(.a(a[4]&b[2]),.b(s[4]),.cin(c[4]),.sum(s[9]),.cout(c[11]));
   fa fa6(.a(a[5]&b[2]),.b(s[5]),.cin(c[5]),.sum(s[10]),.cout(c[12]));
-  fa fa7(.a(a[6]&b[2]),.b(a[7]&b[1]),.cin(c[6]),.sum(o[11]),.cout(c[13]));
+  fa fa7(.a(a[6]&b[2]),.b(a[7]&b[1]),.cin(c[6]),.sum(s[11]),.cout(c[13]));
   
   fa fa8(.a(a[0]&b[3]),.b(s[6]),.cin(c[7]),.sum(o[3]),.cout(c[14]));
   fa fa9(.a(a[1]&b[3]),.b(s[7]),.cin(c[8]),.sum(s[12]),.cout(c[15]));
@@ -58,20 +58,21 @@ module multiplier_8bit(input [7:0] a,b, output [15:0] o);
   fa fa34(.a(a[5]&b[6]),.b(s[29]),.cin(c[33]),.sum(s[34]),.cout(c[40]));
   fa fa35(.a(a[6]&b[6]),.b(a[7]&b[5]),.cin(c[34]),.sum(s[35]),.cout(c[41]));
   
-  fa fa36(.a(a[0]&b[7]),.b(s[30]),.cin(c[35]),.sum(o[7]),.cout(c[35]));
-  fa fa37(.a(a[1]&b[7]),.b(s[31]),.cin(c[36]),.sum(s[36]),.cout(c[36]));
-  fa fa38(.a(a[2]&b[7]),.b(s[32]),.cin(c[37]),.sum(s[37]),.cout(c[37]));
-  fa fa39(.a(a[3]&b[7]),.b(s[33]),.cin(c[38]),.sum(s[38]),.cout(c[38]));
-  fa fa40(.a(a[4]&b[7]),.b(s[34]),.cin(c[39]),.sum(s[33]),.cout(c[39]));
-  fa fa41(.a(a[5]&b[7]),.b(s[35]),.cin(c[40]),.sum(s[34]),.cout(c[40]));
-  fa fa42(.a(a[6]&b[7]),.b(a[7]&b[6]),.cin(c[41]),.sum(s[35]),.cout(c[41]));
+  fa fa36(.a(a[0]&b[7]),.b(s[30]),.cin(c[35]),.sum(o[7]),.cout(c[42]));
+  fa fa37(.a(a[1]&b[7]),.b(s[31]),.cin(c[36]),.sum(s[36]),.cout(c[43]));
+  fa fa38(.a(a[2]&b[7]),.b(s[32]),.cin(c[37]),.sum(s[37]),.cout(c[44]));
+  fa fa39(.a(a[3]&b[7]),.b(s[33]),.cin(c[38]),.sum(s[38]),.cout(c[45]));
+  fa fa40(.a(a[4]&b[7]),.b(s[34]),.cin(c[39]),.sum(s[39]),.cout(c[46]));
+  fa fa41(.a(a[5]&b[7]),.b(s[35]),.cin(c[40]),.sum(s[40]),.cout(c[47]));
+  fa fa42(.a(a[6]&b[7]),.b(a[7]&b[6]),.cin(c[41]),.sum(s[41]),.cout(c[48]));
   
-  ha ha8(.a(c[35]),.b(s[36]),.sum(o[8]),.cout(c[42]));
-  fa fa43(.a(c[42]),.b(s[37]),.cin(c[36]),.sum(o[9]),.cout(c[43]));
-  fa fa44(.a(c[43]),.b(s[38]),.cin(c[37]),.sum(o[10]),.cout(c[44]));
-  fa fa45(.a(c[44]),.b(s[39]),.cin(c[38]),.sum(o[11]),.cout(c[45]));
-  fa fa46(.a(c[45]),.b(s[40]),.cin(c[39]),.sum(o[12]),.cout(c[46]));
-  fa fa47(.a(c[46]),.b(s[41]),.cin(c[40]),.sum(o[13]),.cout(c[47]));
-  fa fa48(.a(c[47]),.b(a[7]&b[7]),.cin(c[41]),.sum(o[14]),.cout(o[15]));
+  ha ha8(.a(c[42]),.b(s[36]),.sum(o[8]),.cout(c[49]));
+  fa fa43(.a(c[49]),.b(s[37]),.cin(c[43]),.sum(o[9]),.cout(c[50]));
+  fa fa44(.a(c[50]),.b(s[38]),.cin(c[44]),.sum(o[10]),.cout(c[51]));
+  fa fa45(.a(c[51]),.b(s[39]),.cin(c[45]),.sum(o[11]),.cout(c[52]));
+  fa fa46(.a(c[52]),.b(s[40]),.cin(c[46]),.sum(o[12]),.cout(c[53]));
+  fa fa47(.a(c[53]),.b(s[41]),.cin(c[47]),.sum(o[13]),.cout(c[54]));
+  fa fa48(.a(c[54]),.b(a[7]&b[7]),.cin(c[48]),.sum(o[14]),.cout(o[15]));
   
 endmodule
+ 
